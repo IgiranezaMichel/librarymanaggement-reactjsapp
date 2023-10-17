@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {motion} from 'framer-motion'
 const Footer=()=>{
 const Today=new Date().getFullYear();
-console.log(Today);
     return(
 <>
       

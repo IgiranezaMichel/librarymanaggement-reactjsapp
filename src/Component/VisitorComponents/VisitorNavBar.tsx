@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-
-const IndexNavBar=()=>{
-
+import {useState}from 'react'
+const VisitorNavBar=()=>{
+const [enableBlackMode,setEnableBlackMode]=useState(false);
+const themeLightHandler=()=>{
+    setEnableBlackMode(!enableBlackMode);
+}
 const TopNavBar=[
     {name:"Location",to:"/location",icon:"bi bi-pin-map-fill"},
     {name:"address",to:"/address",icon:"bi bi-envelope"},
@@ -34,7 +37,7 @@ return (
             <>
             <nav className={index==0?"navbar navbar-expand-md navbar-dark bg-primary text-center":"navbar navbar-expand-md navbar-dark bg-light text-center"} >
      
-        {index==0?<i className="bi bi-toggle-off mx-4"></i>:<img src="/src/assets/logo.png" className="w-25 mx-4"/>}
+        {index==0?<i onClick={themeLightHandler} className={enableBlackMode?"bi bi-toggle-off text-dark fs-2 mx-4":"bi bi-toggle-on text-light fs-2 mx-4"}></i>:<img src="/src/assets/logo.png" className="w-25 mx-4"/>}
       
         <button className={index==1?"navbar-toggler d-lg-none border border-dark mx-1 text-dark":"navbar-toggler d-lg-none border mx-1 text-light"} type="button" data-bs-toggle="collapse" data-bs-target={"#collapsibleNavId1"+index} aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -64,4 +67,4 @@ return (
 
 )
 }
-export default IndexNavBar;
+export default  VisitorNavBar;
